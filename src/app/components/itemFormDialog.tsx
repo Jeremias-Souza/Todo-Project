@@ -24,6 +24,8 @@ import { CardItemStatus } from "@/types/CardItem";
 import { useForm } from "react-hook-form";
 import { firestore } from "../../server/firestore";
 import { collection, addDoc } from "@firebase/firestore";
+import { Value } from "@radix-ui/react-select";
+import { title } from "process";
 
 export type ItemFormDialogProps = {
   show: boolean;
@@ -55,14 +57,18 @@ export default function ItemFormDialog({
     },
   });
 
-  const onSubmit = (values: z.infer<typeof schema>) => {
-    console.log("called");
-    addDoc(cards, values);
-    close();
+  const onSubmit = (value: z.infer<typeof schema>) => {
+    addDoc(cards, value);
+    clearFormAndCloseModal();
   };
 
+  function clearFormAndCloseModal() {
+    form.reset();
+    close();
+  }
+
   return (
-    <Dialog open={show} onOpenChange={close}>
+    <Dialog open={show} onOpenChange={clearFormAndCloseModal}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>

@@ -4,11 +4,12 @@ import { CardItem, CardItemStatus } from "@/types/CardItem";
 import Item from "../components/item";
 import Form from "../components/itemFormDialog";
 import { useState } from "react";
+import { QueryDocumentSnapshot } from "firebase/firestore";
 
 export type ListProps = {
   status: CardItemStatus;
   title: string;
-  cards?: Array<CardItem>;
+  cards?: QueryDocumentSnapshot<CardItem>[];
 };
 
 export default function List({ title, cards, status }: ListProps) {
@@ -29,7 +30,7 @@ export default function List({ title, cards, status }: ListProps) {
           <br />
           {cards?.map((card, index) => (
             <div key={index}>
-              <Item title={card.title} description={card.description}></Item>
+              <Item doc={card} status={status}></Item>
               <br />
             </div>
           ))}
