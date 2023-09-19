@@ -137,4 +137,20 @@
   width: 100%;
   height: 4em;
   background-color: black;
+  color: aliceblue;
+  align-items: center;
+  display: flex;
+}
+
+.LogOut {
+  position: relative;
+  left: calc(100% - 3em);
+  height: 2em;
+  width: 2em;
+}
+
+.LogOut:hover {
+  position: relative;
+  height: 2.1em;
+  width: 2.1em;
 }
