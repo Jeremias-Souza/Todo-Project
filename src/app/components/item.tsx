@@ -9,7 +9,7 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
-import { Trash2 } from "lucide-react";
+import { ArrowRight, Trash2 } from "lucide-react";
 import { deleteDoc, updateDoc } from "@firebase/firestore";
 import { QueryDocumentSnapshot } from "firebase/firestore";
 import { CardItem, CardItemStatus } from "@/types/CardItem";
@@ -42,18 +42,24 @@ export default function Item({ doc, status }: ItemProps) {
   }
 
   return (
-    <Card className="flex">
-      <CardHeader className="overflow-hidden">
-        <CardTitle>{title}</CardTitle>
-        <CardDescription></CardDescription>
-      </CardHeader>
-      <CardContent className="overflow-hidden">{description}</CardContent>
-      <CardFooter>
-        <Button onClick={deleteCard}>
-          <Trash2 />
-        </Button>
-        <Button onClick={newStatus}>Teste</Button>
-      </CardFooter>
+    <Card className="flex cardItem">
+      <div className="title">
+        <CardHeader className="overflow-hidden">
+          <CardTitle className="CardTitle">{title}</CardTitle>
+          <CardContent className="description">{description}</CardContent>
+        </CardHeader>
+
+        <CardFooter className="footerCard">
+          <Button onClick={deleteCard} className="btnDelete">
+            <Trash2 />
+          </Button>
+          <Button onClick={newStatus} className="btnPassed">
+            <ArrowRight />
+          </Button>
+        </CardFooter>
+      </div>
+
+      <div className="footerCard"></div>
     </Card>
   );
 }

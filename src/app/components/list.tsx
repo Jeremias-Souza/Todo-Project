@@ -5,6 +5,7 @@ import Item from "../components/item";
 import Form from "../components/itemFormDialog";
 import { useState } from "react";
 import { QueryDocumentSnapshot } from "firebase/firestore";
+import Header from "../components/header";
 
 export type ListProps = {
   status: CardItemStatus;
@@ -17,7 +18,8 @@ export default function List({ title, cards, status }: ListProps) {
 
   return (
     <>
-      <Card className="w-96">
+      <Header></Header>
+      <Card className="columnsList overflow-y-auto">
         <CardHeader className="bg-orange-500">
           <CardTitle>{title}</CardTitle>
         </CardHeader>

@@ -5,13 +5,11 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -24,8 +22,6 @@ import { CardItemStatus } from "@/types/CardItem";
 import { useForm } from "react-hook-form";
 import { firestore } from "../../server/firestore";
 import { collection, addDoc } from "@firebase/firestore";
-import { Value } from "@radix-ui/react-select";
-import { title } from "process";
 
 export type ItemFormDialogProps = {
   show: boolean;
@@ -41,7 +37,7 @@ export default function ItemFormDialog({
   const cards = collection(firestore, "cards");
 
   const schema = z.object({
-    title: z.string().nonempty().max(20),
+    title: z.string().nonempty().max(29),
     description: z.string().min(10),
     createdAt: z.string().length(13),
     status: z.number(),
@@ -71,8 +67,8 @@ export default function ItemFormDialog({
     <Dialog open={show} onOpenChange={clearFormAndCloseModal}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>teste</DialogDescription>
+          <DialogTitle>Novo Card</DialogTitle>
+          <DialogDescription>Clinicorp</DialogDescription>
         </DialogHeader>
 
         <Form {...form}>
@@ -88,7 +84,7 @@ export default function ItemFormDialog({
                 <FormItem>
                   <FormLabel>Título</FormLabel>
                   <FormControl>
-                    <Input placeholder="Descrição" {...field} />
+                    <Input placeholder="Título" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
