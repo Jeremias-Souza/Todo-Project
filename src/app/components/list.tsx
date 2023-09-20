@@ -32,7 +32,7 @@ export default function List({ title, cards, status }: ListProps) {
           <br />
           {cards?.map((card, index) => (
             <div key={index}>
-              <Item doc={card} status={status}></Item>
+              <Item doc={card}></Item>
               <br />
             </div>
           ))}

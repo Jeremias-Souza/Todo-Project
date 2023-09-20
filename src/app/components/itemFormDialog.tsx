@@ -2,7 +2,6 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -20,8 +19,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { CardItemStatus } from "@/types/CardItem";
 import { useForm } from "react-hook-form";
-import { firestore } from "../../server/firestore";
-import { collection, addDoc } from "@firebase/firestore";
+import FirestoreService from "@/services/firestore.service";
 
 export type ItemFormDialogProps = {
   show: boolean;
@@ -34,8 +32,6 @@ export default function ItemFormDialog({
   close,
   status,
 }: ItemFormDialogProps) {
-  const cards = collection(firestore, "cards");
-
   const schema = z.object({
     title: z.string().nonempty().max(29),
     description: z.string().min(10),
@@ -54,7 +50,7 @@ export default function ItemFormDialog({
   });
 
   const onSubmit = (value: z.infer<typeof schema>) => {
-    addDoc(cards, value);
+    FirestoreService.insert("cards", value);
     clearFormAndCloseModal();
   };
 

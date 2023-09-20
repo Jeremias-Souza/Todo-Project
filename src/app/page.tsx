@@ -7,18 +7,34 @@ import { CardItem, CardItemStatus } from "@/types/CardItem";
 import { QueryDocumentSnapshot } from "firebase/firestore";
 
 import List from "./components/list";
+import FirestoreService from "@/services/firestore.service";
 
 export default function Home() {
-  const cardsColl = collection(firestore, "cards");
-
   const [todos] = useCollection(
-    query(cardsColl, where("status", "==", CardItemStatus.todo))
+    FirestoreService.filter<CardItem>(
+      "cards",
+      "status",
+      "==",
+      CardItemStatus.todo
+    )
   );
+
   const [doing] = useCollection(
-    query(cardsColl, where("status", "==", CardItemStatus.doing))
+    FirestoreService.filter<CardItem>(
+      "cards",
+      "status",
+      "==",
+      CardItemStatus.doing
+    )
   );
+
   const [done] = useCollection(
-    query(cardsColl, where("status", "==", CardItemStatus.done))
+    FirestoreService.filter<CardItem>(
+      "cards",
+      "status",
+      "==",
+      CardItemStatus.done
+    )
   );
 
   return (

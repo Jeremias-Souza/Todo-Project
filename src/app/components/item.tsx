@@ -9,20 +9,19 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { ArrowRight, Trash2 } from "lucide-react";
-import { deleteDoc, updateDoc } from "@firebase/firestore";
 import { QueryDocumentSnapshot } from "firebase/firestore";
 import { CardItem, CardItemStatus } from "@/types/CardItem";
+import FirestoreService from "@/services/firestore.service";
 
 export type ItemProps = {
   doc: QueryDocumentSnapshot<CardItem>;
-  status: CardItemStatus;
 };
 
-export default function Item({ doc, status }: ItemProps) {
+export default function Item({ doc }: ItemProps) {
   const { title, description } = doc.data();
 
   function deleteCard() {
-    deleteDoc(doc.ref);
+    FirestoreService.delete(doc.ref);
   }
 
   function newStatus() {
@@ -33,11 +32,11 @@ export default function Item({ doc, status }: ItemProps) {
       newDoc.status == CardItemStatus.doing
     ) {
       newDoc.status += 1;
-      updateDoc(doc.ref, newDoc);
+      FirestoreService.update(doc.ref, newDoc);
       return;
     }
 
-    deleteDoc(doc.ref);
+    FirestoreService.delete(doc.ref);
   }
 
   return (
