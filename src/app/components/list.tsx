@@ -19,8 +19,8 @@ export default function List({ title, cards, status }: ListProps) {
   return (
     <>
       <Header></Header>
-      <Card className="columnsList overflow-y-auto">
-        <CardHeader className="bg-orange-500">
+      <Card className="columnsList overflow-y-auto overflow-x-hidden">
+        <CardHeader className="bg-teal-800">
           <CardTitle>{title}</CardTitle>
         </CardHeader>
         <CardContent className="min-h-screen">

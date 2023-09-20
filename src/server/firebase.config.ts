@@ -1,6 +1,5 @@
 import "firebase/firestore";
 import "firebase/auth";
-
 import { initializeApp } from "firebase/app";
 
 export const app = initializeApp({
