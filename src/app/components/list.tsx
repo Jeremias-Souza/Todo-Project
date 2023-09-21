@@ -6,19 +6,28 @@ import Form from "../components/itemFormDialog";
 import { useState } from "react";
 import { QueryDocumentSnapshot } from "firebase/firestore";
 import Header from "../components/header";
+import { text } from "node:stream/consumers";
 
 export type ListProps = {
   status: CardItemStatus;
   title: string;
   cards?: QueryDocumentSnapshot<CardItem>[];
+  textFilter: string;
+  setTextFilter: (val: string) => void;
 };
 
-export default function List({ title, cards, status }: ListProps) {
+export default function List({
+  textFilter,
+  setTextFilter,
+  title,
+  cards,
+  status,
+}: ListProps) {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <Header></Header>
+      <Header filter={textFilter} setFilter={setTextFilter}></Header>
       <Card className="columnsList overflow-y-auto overflow-x-hidden">
         <CardHeader className="bg-teal-800">
           <CardTitle>{title}</CardTitle>
@@ -30,12 +39,24 @@ export default function List({ title, cards, status }: ListProps) {
           </Button>
           <br />
           <br />
-          {cards?.map((card, index) => (
-            <div key={index}>
-              <Item doc={card}></Item>
-              <br />
-            </div>
-          ))}
+          {cards
+            ?.filter(
+              (card) =>
+                card
+                  .data()
+                  .title.toLowerCase()
+                  .indexOf(textFilter.toLowerCase()) != -1 ||
+                card
+                  .data()
+                  .description.toLowerCase()
+                  .indexOf(textFilter.toLowerCase()) != -1
+            )
+            .map((card, index) => (
+              <div key={index}>
+                <Item doc={card}></Item>
+                <br />
+              </div>
+            ))}
         </CardContent>
       </Card>
       <Form

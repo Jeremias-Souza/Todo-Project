@@ -1,15 +1,16 @@
 "use client";
 
-import { firestore } from "../server/firestore";
-import { collection, query, where } from "@firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { CardItem, CardItemStatus } from "@/types/CardItem";
 import { QueryDocumentSnapshot } from "firebase/firestore";
 
 import List from "./components/list";
 import FirestoreService from "@/services/firestore.service";
+import { useState } from "react";
 
 export default function Home() {
+  const [textFilter, setTextFilter] = useState("");
+
   const [todos] = useCollection(
     FirestoreService.filter<CardItem>(
       "cards",
@@ -40,16 +41,22 @@ export default function Home() {
   return (
     <div className="flex items-center justify-center gap-5 mt-10">
       <List
+        textFilter={textFilter}
+        setTextFilter={setTextFilter}
         cards={todos?.docs as QueryDocumentSnapshot<CardItem>[]}
         title="À fazer"
         status={CardItemStatus.todo}
       ></List>
       <List
+        textFilter={textFilter}
+        setTextFilter={setTextFilter}
         cards={doing?.docs as QueryDocumentSnapshot<CardItem>[]}
         title="Em desenvolvimento"
         status={CardItemStatus.doing}
       ></List>
       <List
+        textFilter={textFilter}
+        setTextFilter={setTextFilter}
         cards={done?.docs as QueryDocumentSnapshot<CardItem>[]}
         title="Concluído"
         status={CardItemStatus.done}

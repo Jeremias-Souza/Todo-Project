@@ -12,8 +12,14 @@ import {
 } from "@/components/ui/sheet";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { Separator } from "@radix-ui/react-select";
+import { Input } from "@/components/ui/input";
 
-export default function Header() {
+export type HeaderProps = {
+  filter: string;
+  setFilter: (val: string) => void;
+};
+
+export default function Header({ filter, setFilter }: HeaderProps) {
   const [showModal, setShowModal] = useState(false);
 
   const tags = Array.from({ length: 5 }).map(
@@ -23,6 +29,11 @@ export default function Header() {
   return (
     <>
       <div className="headerComponent">
+        <Input
+          style={{ color: "black" }}
+          value={filter}
+          onChange={(val) => setFilter(val.target.value)}
+        />
         <LogOut className="LogOut" onClick={() => setShowModal(true)} />
         <Sheet>
           <SheetTrigger>
