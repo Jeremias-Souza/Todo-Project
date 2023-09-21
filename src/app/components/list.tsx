@@ -6,7 +6,6 @@ import Form from "../components/itemFormDialog";
 import { useState } from "react";
 import { QueryDocumentSnapshot } from "firebase/firestore";
 import Header from "../components/header";
-import { text } from "node:stream/consumers";
 
 export type ListProps = {
   status: CardItemStatus;
@@ -29,7 +28,7 @@ export default function List({
     <>
       <Header filter={textFilter} setFilter={setTextFilter}></Header>
       <Card className="columnsList overflow-y-auto overflow-x-hidden">
-        <CardHeader className="bg-teal-800">
+        <CardHeader className="bg-orange-600">
           <CardTitle>{title}</CardTitle>
         </CardHeader>
         <CardContent className="min-h-screen">

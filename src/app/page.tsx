@@ -39,7 +39,7 @@ export default function Home() {
   );
 
   return (
-    <div className="flex items-center justify-center gap-5 mt-10">
+    <div className="flex items-center justify-center gap-5 mt-10 ">
       <List
         textFilter={textFilter}
         setTextFilter={setTextFilter}

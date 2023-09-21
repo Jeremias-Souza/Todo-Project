@@ -8,7 +8,7 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
-import { ArrowRight, Trash2 } from "lucide-react";
+import { ChevronRight, Trash2 } from "lucide-react";
 import { QueryDocumentSnapshot } from "firebase/firestore";
 import { CardItem, CardItemStatus } from "@/types/CardItem";
 import FirestoreService from "@/services/firestore.service";
@@ -52,7 +52,7 @@ export default function Item({ doc }: ItemProps) {
             <Trash2 />
           </Button>
           <Button onClick={newStatus} className="btnPassed">
-            <ArrowRight />
+            <ChevronRight />
           </Button>
         </CardFooter>
       </div>
