@@ -1,5 +1,3 @@
-import { Search } from "lucide-react";
-
 import { Input } from "@/components/ui/input";
 
 export type HeaderProps = {
@@ -9,15 +7,13 @@ export type HeaderProps = {
 
 export default function Header({ filter, setFilter }: HeaderProps) {
   return (
-    <>
-      <div className="headerComponent">
-        <Input
-          className="inputFilter"
-          value={filter}
-          onChange={(val) => setFilter(val.target.value)}
-          placeholder="Digite a palavra a ser filtrada:"
-        />
-      </div>
-    </>
+    <div className="headerComponent">
+      <Input
+        className="inputFilter"
+        value={filter}
+        onChange={(val) => setFilter(val.target.value)}
+        placeholder="Digite a palavra a ser filtrada:"
+      />
+    </div>
   );
 }

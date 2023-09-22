@@ -46,7 +46,6 @@ export default function Item({ doc }: ItemProps) {
           <CardTitle className="CardTitle">{title}</CardTitle>
           <CardContent className="description">{description}</CardContent>
         </CardHeader>
-
         <CardFooter className="footerCard">
           <Button onClick={deleteCard} className="btnDelete">
             <Trash2 />
@@ -56,7 +55,6 @@ export default function Item({ doc }: ItemProps) {
           </Button>
         </CardFooter>
       </div>
-
       <div className="footerCard"></div>
     </Card>
   );
