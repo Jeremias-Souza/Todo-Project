@@ -27,42 +27,44 @@ export default function List({
   return (
     <>
       <Header filter={textFilter} setFilter={setTextFilter}></Header>
-      <Card className="columnsList overflow-y-auto overflow-x-hidden">
-        <CardHeader className="bg-orange-600">
-          <CardTitle>{title}</CardTitle>
-        </CardHeader>
-        <CardContent className="min-h-screen">
-          <br />
-          <Button className="w-full" onClick={() => setShowModal(true)}>
-            Adicionar
-          </Button>
-          <br />
-          <br />
-          {cards
-            ?.filter(
-              (card) =>
-                card
-                  .data()
-                  .title.toLowerCase()
-                  .indexOf(textFilter.toLowerCase()) != -1 ||
-                card
-                  .data()
-                  .description.toLowerCase()
-                  .indexOf(textFilter.toLowerCase()) != -1
-            )
-            .map((card, index) => (
-              <div key={index}>
-                <Item doc={card}></Item>
-                <br />
-              </div>
-            ))}
-        </CardContent>
-      </Card>
-      <Form
-        status={status}
-        show={showModal}
-        close={() => setShowModal(false)}
-      ></Form>
+      <div>
+        <Card className="columnsList overflow-y-auto overflow-x-hidden">
+          <CardHeader className="bg-orange-600">
+            <CardTitle>{title}</CardTitle>
+          </CardHeader>
+          <CardContent className="min-h-screen">
+            <br />
+            <Button className="w-full" onClick={() => setShowModal(true)}>
+              Adicionar
+            </Button>
+            <br />
+            <br />
+            {cards
+              ?.filter(
+                (card) =>
+                  card
+                    .data()
+                    .title.toLowerCase()
+                    .indexOf(textFilter.toLowerCase()) != -1 ||
+                  card
+                    .data()
+                    .description.toLowerCase()
+                    .indexOf(textFilter.toLowerCase()) != -1
+              )
+              .map((card, index) => (
+                <div key={index}>
+                  <Item doc={card}></Item>
+                  <br />
+                </div>
+              ))}
+          </CardContent>
+        </Card>
+        <Form
+          status={status}
+          show={showModal}
+          close={() => setShowModal(false)}
+        ></Form>
+      </div>
     </>
   );
 }
