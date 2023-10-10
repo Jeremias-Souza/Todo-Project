@@ -6,9 +6,13 @@ export type HeaderProps = {
   setFilter: (val: string) => void;
 };
 
+function definedRouter() {
+  window.location.href = "/login";
+}
+
 export default function Header({ filter, setFilter }: HeaderProps) {
   return (
-    <div className="headerComponent">
+    <div className="headerComponent" onChange={definedRouter}>
       <Blocker></Blocker>
       <Input
         className="inputFilter"
