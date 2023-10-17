@@ -1,8 +1,6 @@
 import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, provider } from "@/server/firebase.config";
-import { signInWithRedirect } from "firebase/auth";
-import { LogIn, LogOut } from "lucide-react";
+import { auth } from "@/server/firebase.config";
+import { LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export type ItemFormDialogProps = {
@@ -10,15 +8,8 @@ export type ItemFormDialogProps = {
 };
 
 export default function Blocker() {
-  const [user] = useAuthState(auth);
-
-  const signInWithGoogle = () => {
-    signInWithRedirect(auth, provider);
-  };
-
   const signOut = () => {
-    auth.signOut();
-    window.location.href = "/login";
+    return auth.signOut();
   };
 
   return (

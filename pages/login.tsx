@@ -21,6 +21,10 @@ export default function Login() {
     window.location.href = "/";
   };
 
+  function getInitials(displayName: string | null): React.ReactNode {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <>
       <div className="flex items-center justify-center h-screen">
@@ -31,9 +35,16 @@ export default function Login() {
             </div>
           ) : user ? (
             <div>
-              <Button onClick={screenPersonal}>
-                <Avatar>
-                  <AvatarImage src={user.photoURL}></AvatarImage>;
+              <Button onClick={screenPersonal} className="h-15">
+                <Avatar className="right-2">
+                  {user.photoURL ? (
+                    <AvatarImage src={user.photoURL}></AvatarImage>
+                  ) : (
+                    // Se não houver foto, mostrar as iniciais do nome
+                    <div className="initials">
+                      {getInitials(user.displayName)}
+                    </div>
+                  )}
                 </Avatar>
                 Entrar com: {user.displayName}
               </Button>

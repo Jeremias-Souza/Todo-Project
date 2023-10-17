@@ -6,6 +6,7 @@ import Form from "../components/itemFormDialog";
 import { useState } from "react";
 import { QueryDocumentSnapshot } from "firebase/firestore";
 import Header from "../components/header";
+import PrivateRoute from "./privateRoute";
 
 export type ListProps = {
   status: CardItemStatus;
@@ -25,7 +26,7 @@ export default function List({
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <>
+    <PrivateRoute>
       <Header filter={textFilter} setFilter={setTextFilter}></Header>
       <div>
         <Card className="columnsList overflow-y-auto overflow-x-hidden">
@@ -65,6 +66,6 @@ export default function List({
           close={() => setShowModal(false)}
         ></Form>
       </div>
-    </>
+    </PrivateRoute>
   );
 }
