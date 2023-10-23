@@ -38,7 +38,7 @@ export default function Login() {
   }
 
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center h-screen bg-slate-500">
       <div className="p-4 rounded-md">
         {loading ? (
           <div className="loading">
@@ -83,7 +83,7 @@ export default function Login() {
           <div className="spinner"></div>
         ) : (
           <div>
-            <Card className="w-[400px]">
+            <Card className="w-[400px] ">
               <CardHeader>
                 <CardTitle>Bem vindo,</CardTitle>
                 <CardDescription>

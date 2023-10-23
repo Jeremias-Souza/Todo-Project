@@ -30,10 +30,10 @@ export default function List({
       <Header filter={textFilter} setFilter={setTextFilter}></Header>
       <div>
         <Card className="columnsList overflow-y-auto overflow-x-hidden">
-          <CardHeader className="bg-orange-600">
+          <CardHeader className="bg-slate-500">
             <CardTitle>{title}</CardTitle>
           </CardHeader>
-          <CardContent className="min-h-screen">
+          <CardContent className="min-h-screen bg-gray-200">
             <br />
             <Button className="w-full" onClick={() => setShowModal(true)}>
               Adicionar
