@@ -13,7 +13,7 @@ const signOut = () => {
 
 export default function Header({ filter, setFilter }: HeaderProps) {
   return (
-    <div className="headerComponent">
+    <div className="flex items-center headerComponent">
       <a className="logOut" onClick={signOut}>
         LogOut <LogOut />
       </a>

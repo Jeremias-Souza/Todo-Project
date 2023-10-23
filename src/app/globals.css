@@ -134,12 +134,11 @@
 .headerComponent {
   position: fixed;
   top: 0;
+  right: -18rem;
   width: calc(90% + 50%);
   height: 4em;
   background-color: rgb(0, 0, 0);
   color: aliceblue;
-  display: flex;
-  align-items: center;
 }
 
 .inputFilter {

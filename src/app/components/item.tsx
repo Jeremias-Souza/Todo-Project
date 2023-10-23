@@ -28,7 +28,8 @@ export default function Item({ doc }: ItemProps) {
 
     if (
       newDoc.status == CardItemStatus.todo ||
-      newDoc.status == CardItemStatus.doing
+      newDoc.status == CardItemStatus.doing ||
+      newDoc.status == CardItemStatus.done
     ) {
       newDoc.status += 1;
       FirestoreService.update(doc.ref, newDoc);

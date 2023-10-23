@@ -38,31 +38,45 @@ export default function Home() {
     )
   );
 
+  const [filed] = useCollection(
+    FirestoreService.filter<CardItem>(
+      "cards",
+      "status",
+      "==",
+      CardItemStatus.filed
+    )
+  );
+
   return (
-    <div className="flex items-center justify-items-center">
-      <div className="flex items-center justify-center gap-5 mt-10 ">
-        <List
-          textFilter={textFilter}
-          setTextFilter={setTextFilter}
-          cards={todos?.docs as QueryDocumentSnapshot<CardItem>[]}
-          title="À fazer"
-          status={CardItemStatus.todo}
-        ></List>
-        <List
-          textFilter={textFilter}
-          setTextFilter={setTextFilter}
-          cards={doing?.docs as QueryDocumentSnapshot<CardItem>[]}
-          title="Em desenvolvimento"
-          status={CardItemStatus.doing}
-        ></List>
-        <List
-          textFilter={textFilter}
-          setTextFilter={setTextFilter}
-          cards={done?.docs as QueryDocumentSnapshot<CardItem>[]}
-          title="Concluído"
-          status={CardItemStatus.done}
-        ></List>
-      </div>
+    <div className="flex items-center justify-center gap-5 mt-10">
+      <List
+        textFilter={textFilter}
+        setTextFilter={setTextFilter}
+        cards={todos?.docs as QueryDocumentSnapshot<CardItem>[]}
+        title="À fazer"
+        status={CardItemStatus.todo}
+      ></List>
+      <List
+        textFilter={textFilter}
+        setTextFilter={setTextFilter}
+        cards={doing?.docs as QueryDocumentSnapshot<CardItem>[]}
+        title="Em desenvolvimento"
+        status={CardItemStatus.doing}
+      ></List>
+      <List
+        textFilter={textFilter}
+        setTextFilter={setTextFilter}
+        cards={done?.docs as QueryDocumentSnapshot<CardItem>[]}
+        title="Concluído"
+        status={CardItemStatus.done}
+      ></List>
+      <List
+        textFilter={textFilter}
+        setTextFilter={setTextFilter}
+        cards={filed?.docs as QueryDocumentSnapshot<CardItem>[]}
+        title="Arquivados"
+        status={CardItemStatus.filed}
+      ></List>
     </div>
   );
 }
