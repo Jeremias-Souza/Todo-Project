@@ -202,6 +202,20 @@
   animation: spin 1s linear infinite;
 }
 
+.CardFooterBtnReturnAcess {
+  display: flex;
+  align-items: center;
+}
+
+.btnReturnAcess {
+  color: black;
+  cursor: pointer;
+}
+
+.SpanBtnReturnAcess {
+  margin-right: 5px;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
