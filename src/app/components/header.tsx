@@ -1,6 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { LogOut } from "lucide-react";
 import { auth } from "@/server/firebase.config";
+import { Button } from "@/components/ui/button";
 
 export type HeaderProps = {
   filter: string;

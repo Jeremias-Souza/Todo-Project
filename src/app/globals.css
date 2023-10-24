@@ -204,6 +204,17 @@
   right: 10px;
 }
 
+.privator {
+  position: fixed;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-color: black;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

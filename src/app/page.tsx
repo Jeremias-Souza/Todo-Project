@@ -48,35 +48,43 @@ export default function Home() {
   );
 
   return (
-    <div className="flex items-center justify-center gap-5 mt-10">
-      <List
-        textFilter={textFilter}
-        setTextFilter={setTextFilter}
-        cards={todos?.docs as QueryDocumentSnapshot<CardItem>[]}
-        title="À fazer"
-        status={CardItemStatus.todo}
-      ></List>
-      <List
-        textFilter={textFilter}
-        setTextFilter={setTextFilter}
-        cards={doing?.docs as QueryDocumentSnapshot<CardItem>[]}
-        title="Em desenvolvimento"
-        status={CardItemStatus.doing}
-      ></List>
-      <List
-        textFilter={textFilter}
-        setTextFilter={setTextFilter}
-        cards={done?.docs as QueryDocumentSnapshot<CardItem>[]}
-        title="Concluído"
-        status={CardItemStatus.done}
-      ></List>
-      <List
-        textFilter={textFilter}
-        setTextFilter={setTextFilter}
-        cards={filed?.docs as QueryDocumentSnapshot<CardItem>[]}
-        title="Arquivados"
-        status={CardItemStatus.filed}
-      ></List>
+    <div className="flex mt-10">
+      <div className="ml-4 mr-4">
+        <List
+          textFilter={textFilter}
+          setTextFilter={setTextFilter}
+          cards={todos?.docs as QueryDocumentSnapshot<CardItem>[]}
+          title="À fazer"
+          status={CardItemStatus.todo}
+        ></List>
+      </div>
+      <div className="flex-1 mr-4">
+        <List
+          textFilter={textFilter}
+          setTextFilter={setTextFilter}
+          cards={doing?.docs as QueryDocumentSnapshot<CardItem>[]}
+          title="Em desenvolvimento"
+          status={CardItemStatus.doing}
+        ></List>
+      </div>
+      <div className="flex-1 mr-4">
+        <List
+          textFilter={textFilter}
+          setTextFilter={setTextFilter}
+          cards={done?.docs as QueryDocumentSnapshot<CardItem>[]}
+          title="Concluído"
+          status={CardItemStatus.done}
+        ></List>
+      </div>
+      <div className="flex-1 mr-4">
+        <List
+          textFilter={textFilter}
+          setTextFilter={setTextFilter}
+          cards={filed?.docs as QueryDocumentSnapshot<CardItem>[]}
+          title="Arquivados"
+          status={CardItemStatus.filed}
+        ></List>
+      </div>
     </div>
   );
 }
