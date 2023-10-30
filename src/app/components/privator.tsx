@@ -1,4 +1,10 @@
+import { useEffect } from "react";
+
 export default function Privator() {
+  useEffect(() => {
+    window.location.href = "/login";
+  });
+
   return (
     <>
       <div className="privator flex items-center justify-center h-screen">
