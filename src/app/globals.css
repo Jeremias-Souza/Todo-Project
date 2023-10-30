@@ -193,6 +193,10 @@
   cursor: pointer;
 }
 
+.labelWarningAcess {
+  color: red;
+}
+
 .SpanBtnReturnAcess {
   margin-right: 5px;
 }
@@ -216,7 +220,6 @@
 }
 
 .bg-full-screen {
-  /*background: url("sua-imagem-de-fundo.jpg") no-repeat center center fixed;*/
   background-color: rgb(93, 106, 120);
   background-size: cover;
   height: 100vh;

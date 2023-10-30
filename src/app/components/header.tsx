@@ -13,15 +13,15 @@ const signOut = () => {
 
 export default function Header({ filter, setFilter }: HeaderProps) {
   return (
-    <div className="flex items-center w-full left-0 headerComponent">
-      <a className="logOut" onClick={signOut}>
+    <div className="flex items-center w-full left-0 headerComponent z-50">
+      <a className="logOut mr-1" onClick={signOut}>
         LogOut <LogOut />
       </a>
       <Input
         className="inputFilter"
         value={filter}
         onChange={(val) => setFilter(val.target.value)}
-        placeholder="Pesquisar card:"
+        placeholder="Pesquisar Card:"
       />
     </div>
   );

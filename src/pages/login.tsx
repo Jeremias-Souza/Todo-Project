@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, provider } from "@/server/firebase.config";
-import { signInWithPopup, signInWithRedirect } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 import { Button } from "@/components/ui/button";
 import "src/app/globals.css";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
@@ -21,7 +21,7 @@ export type ItemFormDialogProps = {
 export default function Login() {
   const [user, loading] = useAuthState(auth);
 
-  const signInWithGoogle = () => {
+  const signInWithGoogle = async () => {
     signInWithPopup(auth, provider);
   };
 
@@ -91,7 +91,7 @@ export default function Login() {
                     Clique abaixo para fazer login com sua conta Google.
                   </CardDescription>
                 </CardHeader>
-                <CardFooter className="flex items-center justify-center ">
+                <CardFooter className="flex items-center justify-center">
                   <Button onClick={signInWithGoogle}>
                     Fazer login com Google
                   </Button>
