@@ -1,7 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { LogOut } from "lucide-react";
 import { auth } from "@/server/firebase.config";
-import { Button } from "@/components/ui/button";
 
 export type HeaderProps = {
   filter: string;
@@ -14,7 +13,7 @@ const signOut = () => {
 
 export default function Header({ filter, setFilter }: HeaderProps) {
   return (
-    <div className="flex items-center headerComponent">
+    <div className="flex items-center w-full left-0 headerComponent">
       <a className="logOut" onClick={signOut}>
         LogOut <LogOut />
       </a>
@@ -22,7 +21,7 @@ export default function Header({ filter, setFilter }: HeaderProps) {
         className="inputFilter"
         value={filter}
         onChange={(val) => setFilter(val.target.value)}
-        placeholder="Digite a palavra a ser filtrada:"
+        placeholder="Pesquisar card:"
       />
     </div>
   );

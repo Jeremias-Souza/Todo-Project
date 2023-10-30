@@ -47,7 +47,7 @@ export default function Login() {
             </div>
           ) : user ? (
             <div>
-              <Card className="">
+              <Card>
                 <CardHeader>
                   <CardTitle>Olá, {user.displayName}</CardTitle>
                   <CardDescription>

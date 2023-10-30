@@ -53,13 +53,13 @@ export default function Home() {
 
   return (
     <div>
-      <div className="p-4 rounded-md ">
+      <div className="p-4 rounded-md overflow-y-hidden">
         {loading ? (
           <div className="loading">
             <div className="spinner"></div>
           </div>
         ) : user ? (
-          <div className="flex mt-6">
+          <div className="flex mt-6 mb-96">
             <div className="ml-0 mr-4">
               <List
                 textFilter={textFilter}
