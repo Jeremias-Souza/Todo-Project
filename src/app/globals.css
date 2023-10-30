@@ -215,6 +215,13 @@
   background-color: black;
 }
 
+.bg-full-screen {
+  /*background: url("sua-imagem-de-fundo.jpg") no-repeat center center fixed;*/
+  background-color: rgb(93, 106, 120);
+  background-size: cover;
+  height: 100vh;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

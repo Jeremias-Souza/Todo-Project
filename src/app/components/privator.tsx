@@ -1,6 +1,4 @@
-import { Card, CardHeader } from "@/components/ui/card";
-
-export default function Header() {
+export default function Privator() {
   return (
     <>
       <div className="privator flex items-center justify-center h-screen">
