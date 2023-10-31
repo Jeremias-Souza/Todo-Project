@@ -64,7 +64,7 @@ export default function ItemFormDialog({
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Novo Card</DialogTitle>
-          <DialogDescription>Clinicorp</DialogDescription>
+          <DialogDescription>Crie novos Cards para seu board</DialogDescription>
         </DialogHeader>
 
         <Form {...form}>
