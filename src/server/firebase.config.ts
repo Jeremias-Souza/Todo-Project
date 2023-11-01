@@ -2,7 +2,6 @@ import "firebase/firestore";
 import "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
-import { ZodIssueOptionalMessage } from "zod";
 
 export const app = initializeApp({
   apiKey: "AIzaSyDBxeaJn08xMzyOKuyVyV4K6Saz89I4W3U",

@@ -11,3 +11,10 @@ export type CardItem = {
   createdAt: string;
   status: CardItemStatus;
 };
+
+export type ItemFormNewClient = {
+  nameClient: string;
+  telCliente: string;
+  createdAt: string;
+  status: number;
+};

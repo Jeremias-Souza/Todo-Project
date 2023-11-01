@@ -5,7 +5,7 @@ import Item from "../components/item";
 import Form from "../components/itemFormDialog";
 import { useState } from "react";
 import { QueryDocumentSnapshot } from "firebase/firestore";
-import Header from "../components/header";
+import Header from "./header";
 import PrivateRoute from "./privateRoute";
 
 export type ListProps = {
