@@ -3,48 +3,37 @@ import HeaderNoFilter from "@/app/components/headerNoFilter";
 import Privator from "@/app/components/privator";
 import { Button } from "@/components/ui/button";
 import { auth } from "@/server/firebase.config";
-import { CardItem, CardItemStatus } from "@/types/CardItem";
-import { QueryDocumentSnapshot } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "src/app/globals.css";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import ItemFormNewClient from "@/app/components/itemFormNewClient";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 
 import {
   Command,
   CommandEmpty,
-  CommandGroup,
-  CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
-  CommandShortcut,
 } from "@/components/ui/command";
 
-export type SearchProps = {
-  filter: string;
-  setFilter: (val: string) => void;
-};
-
-export type ListProps = {
-  status: CardItemStatus;
-  title: string;
-  cards?: QueryDocumentSnapshot<CardItem>[];
-};
-
-export default function CreationClient({ filter, setFilter }: SearchProps) {
+export default function CreationClient() {
   const [showModal, setShowModal] = useState(false);
   const [user, loading] = useAuthState(auth);
-  const [textFilter, setTextFilter] = useState("");
+  const [filter, setFilter] = useState("");
+  const [filteredData, setFilteredData] = useState<string[]>([]);
+  const firestoreData = ["Jeremias", "Souza"];
+
+  const filterData = () => {
+    const filtered = firestoreData.filter((item) =>
+      item.toLowerCase().includes(filter.toLowerCase())
+    );
+    setFilteredData(filtered);
+  };
+
+  useEffect(() => {
+    filterData();
+  }, [filter]);
 
   return (
     <div>
@@ -69,21 +58,28 @@ export default function CreationClient({ filter, setFilter }: SearchProps) {
             >
               Criar Novo Cadastro
             </Button>
-            <div className="flex items-center justify-center h-screen w-screen">
+            <div className="flex items-center justify-center h-screen">
               <Card>
                 <CardHeader>
-                  <CardTitle>Pesquise um Cliente</CardTitle>
+                  <CardTitle>Pesquise a placa do veiculo:</CardTitle>
                 </CardHeader>
                 <CardFooter>
                   <Command>
                     <Input
+                      placeholder="Digite a placa do veiculo:"
                       value={filter}
-                      onChange={(val) => setFilter(val.target.value)}
-                      placeholder="Digite o nome do cliente:"
+                      onChange={(e) => setFilter(e.target.value)}
                     />
                     <CommandList>
-                      <CommandEmpty>No results found.</CommandEmpty>
-                      <CommandItem></CommandItem>
+                      {filteredData.length === 0 ? (
+                        <CommandEmpty>
+                          Nenhum resultado encontrado.
+                        </CommandEmpty>
+                      ) : (
+                        filteredData.map((resultFilter, index) => (
+                          <CommandItem key={index}>{resultFilter}</CommandItem>
+                        ))
+                      )}
                     </CommandList>
                   </Command>
                 </CardFooter>
