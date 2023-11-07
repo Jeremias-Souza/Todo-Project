@@ -1,6 +1,4 @@
 [
   { "label": "Página Inicial", "route": "/" },
-  { "label": "Registros de novos Clientes", "route": "/creationClient" },
-  { "label": "Item 3", "route": "/rota3" },
-  { "label": "Item 4", "route": "/rota3" }
+  { "label": "Registros de novos Clientes", "route": "/creationClient" }
 ]

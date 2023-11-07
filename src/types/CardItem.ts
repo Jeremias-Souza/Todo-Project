@@ -12,9 +12,19 @@ export type CardItem = {
   status: CardItemStatus;
 };
 
-export type ItemFormNewClient = {
+export enum ItemFormNewClientsStatus {
+  disponivel = 1,
+  notDisponivel = 0,
+}
+
+export type ItemFormNewClients = {
+  idVehicle: string;
+  modelVehicle: string;
+  brandVehicle: string;
+  motorization: string;
+  birthYear: string;
   nameClient: string;
   telCliente: string;
   createdAt: string;
-  status: number;
+  status: ItemFormNewClientsStatus;
 };

@@ -7,7 +7,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import "src/app/globals.css";
 import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import ItemFormNewClient from "@/app/components/itemFormNewClient";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
 
 import {
@@ -20,20 +20,7 @@ import {
 export default function CreationClient() {
   const [showModal, setShowModal] = useState(false);
   const [user, loading] = useAuthState(auth);
-  const [filter, setFilter] = useState("");
-  const [filteredData, setFilteredData] = useState<string[]>([]);
-  const firestoreData = ["Jeremias", "Souza"];
-
-  const filterData = () => {
-    const filtered = firestoreData.filter((item) =>
-      item.toLowerCase().includes(filter.toLowerCase())
-    );
-    setFilteredData(filtered);
-  };
-
-  useEffect(() => {
-    filterData();
-  }, [filter]);
+  const filtered = "Teste";
 
   return (
     <div>
@@ -65,21 +52,10 @@ export default function CreationClient() {
                 </CardHeader>
                 <CardFooter>
                   <Command>
-                    <Input
-                      placeholder="Digite a placa do veiculo:"
-                      value={filter}
-                      onChange={(e) => setFilter(e.target.value)}
-                    />
+                    <Input placeholder="Digite a placa do veiculo:" />
                     <CommandList>
-                      {filteredData.length === 0 ? (
-                        <CommandEmpty>
-                          Nenhum resultado encontrado.
-                        </CommandEmpty>
-                      ) : (
-                        filteredData.map((resultFilter, index) => (
-                          <CommandItem key={index}>{resultFilter}</CommandItem>
-                        ))
-                      )}
+                      <CommandEmpty>Nenhum resultado encontrado.</CommandEmpty>
+                      <CommandItem>{filtered}</CommandItem>
                     </CommandList>
                   </Command>
                 </CardFooter>

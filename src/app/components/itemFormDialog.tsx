@@ -63,8 +63,10 @@ export default function ItemFormDialog({
     <Dialog open={show} onOpenChange={clearFormAndCloseModal}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Novo Card</DialogTitle>
-          <DialogDescription>Crie novos Cards para seu board</DialogDescription>
+          <DialogTitle>Nova Ordem de Serviço</DialogTitle>
+          <DialogDescription>
+            Crie novas ordens de serviço para seu controle
+          </DialogDescription>
         </DialogHeader>
 
         <Form {...form}>
@@ -78,9 +80,9 @@ export default function ItemFormDialog({
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Título</FormLabel>
+                  <FormLabel>Placa do Veiculo</FormLabel>
                   <FormControl>
-                    <Input placeholder="Título" {...field} />
+                    <Input placeholder="Placa do Veiculo" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -91,9 +93,12 @@ export default function ItemFormDialog({
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Descrição</FormLabel>
+                  <FormLabel>Ordem de serviço</FormLabel>
                   <FormControl>
-                    <Input placeholder="Descrição" {...field} />
+                    <Input
+                      placeholder="Descreva o serviço a ser feito"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
