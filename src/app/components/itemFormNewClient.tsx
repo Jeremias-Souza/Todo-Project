@@ -40,7 +40,7 @@ export default function ItemFormNewClient({
     motorization: z.string().min(2).max(40),
     birthYear: z.string().min(2).max(4),
     nameClient: z.string().nonempty().max(40),
-    telClient: z.string().min(10).max(13),
+    telClient: z.string().min(10).max(17),
     createdAt: z.string().length(13),
     status: z.number(),
   });
@@ -78,7 +78,7 @@ export default function ItemFormNewClient({
   const birthYear = document.getElementById("birthYear") as HTMLInputElement;
 
   if (phoneInput) {
-    VanillaMasker(phoneInput).maskPattern("(99) 9999-9999");
+    VanillaMasker(phoneInput).maskPattern("(99) 99999-9999");
   }
 
   if (motorization) {
