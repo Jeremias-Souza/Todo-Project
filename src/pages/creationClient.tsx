@@ -5,19 +5,17 @@ import { Button } from "@/components/ui/button";
 import { auth } from "@/server/firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "src/app/globals.css";
-import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import ItemFormNewClient from "@/app/components/itemFormNewClient";
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
+import TableClient from "@/app/components/tableClient";
+import { ItemFormNewClients } from "@/types/CardItem";
+import { QueryDocumentSnapshot } from "firebase/firestore";
 
-import {
-  Command,
-  CommandEmpty,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
+export type ClientProps = {
+  clients: QueryDocumentSnapshot<ItemFormNewClients>;
+};
 
-export default function CreationClient() {
+export default function CreationClient({ clients }: ClientProps) {
   const [showModal, setShowModal] = useState(false);
   const [user, loading] = useAuthState(auth);
   const filtered = "Teste";
@@ -45,7 +43,7 @@ export default function CreationClient() {
             >
               Criar Novo Cadastro
             </Button>
-            <div className="flex items-center justify-center h-screen">
+            {/* <div className="flex items-center justify-center h-screen">
               <Card>
                 <CardHeader>
                   <CardTitle>Pesquise a placa do veiculo:</CardTitle>
@@ -60,7 +58,8 @@ export default function CreationClient() {
                   </Command>
                 </CardFooter>
               </Card>
-            </div>
+            </div> */}
+            <TableClient doc={clients}></TableClient>
           </div>
         ) : loading ? (
           <div className="spinner"></div>

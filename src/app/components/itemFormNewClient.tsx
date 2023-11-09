@@ -22,7 +22,8 @@ import FirestoreService from "@/services/firestore.service";
 import VanillaMasker from "vanilla-masker";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
+import TableClient from "./tableClient";
 
 export type ItemFormNewClientProps = {
   show: boolean;
@@ -75,6 +76,7 @@ export default function ItemFormNewClient({
     "motorization"
   ) as HTMLInputElement;
   const idVehicle = document.getElementById("idVehicle") as HTMLInputElement;
+
   const birthYear = document.getElementById("birthYear") as HTMLInputElement;
 
   if (phoneInput) {
@@ -113,7 +115,7 @@ export default function ItemFormNewClient({
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-              <RadioGroup className="mt-5" onClick={handleRadioChange}>
+              <RadioGroup className="mt-5" onChange={handleRadioChange}>
                 <Label>Selecione o Modelo da Placa</Label>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="option-one" id="option-one" />
@@ -133,6 +135,7 @@ export default function ItemFormNewClient({
                         type="text"
                         id="idVehicle"
                         placeholder="Placa do Veiculo"
+                        className="uppercase"
                         {...field}
                       />
                     </FormControl>
