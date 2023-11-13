@@ -37,6 +37,7 @@ export default function ItemFormDialog({
     description: z.string().min(10),
     createdAt: z.string().length(13),
     status: z.number(),
+    idUserCreation: z.number().default(1),
   });
 
   const form = useForm<z.infer<typeof schema>>({
@@ -50,6 +51,7 @@ export default function ItemFormDialog({
   });
 
   const onSubmit = (value: z.infer<typeof schema>) => {
+    value = { ...value, idUserCreation: 1 };
     FirestoreService.insert("cards", value);
     clearFormAndCloseModal();
   };

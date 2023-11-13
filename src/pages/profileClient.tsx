@@ -21,6 +21,10 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/server/firebase.config";
 import TableClient from "@/app/components/tableClient";
 import TableServices from "@/app/components/tableServices";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import ItemFormNewClient from "@/app/components/itemFormNewClient";
+import ItemFormNewService from "@/app/components/itemFormNewService";
 
 export type ClientProps = {
   doc: QueryDocumentSnapshot<ItemFormNewClients>;
@@ -30,6 +34,7 @@ export type ClientProps = {
 export default function ProfileClient({ doc, clients }: ClientProps) {
   const { nameClient, telCliente } = doc?.data() || {};
   const [user, loading] = useAuthState(auth);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div>
@@ -41,11 +46,23 @@ export default function ProfileClient({ doc, clients }: ClientProps) {
         ) : user ? (
           <div>
             <Header></Header>
+            <Button
+              className="buttonNewService"
+              form="insert-form"
+              type="submit"
+              onClick={() => setShowModal(true)}
+            >
+              Criar Novo Serviço
+            </Button>
+            <ItemFormNewService
+              show={showModal}
+              close={() => setShowModal(false)}
+            ></ItemFormNewService>
             <div className="fixed">
               <Avatar className="fixed h-24 w-24 top-20 left-4">
                 <AvatarImage src="https://github.com/shadcn.png" />
               </Avatar>
-              <div className="pl-32 pt-16">
+              <div className="ml-32 mt-16">
                 <CardTitle>Jeremias Souza (Ford - Focus / GYX-3598)</CardTitle>
                 <Command>Número: (47) 99631-5355</Command>
                 <Command>Ano: 2012</Command>

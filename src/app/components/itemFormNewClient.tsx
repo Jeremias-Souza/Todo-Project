@@ -23,7 +23,6 @@ import VanillaMasker from "vanilla-masker";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { ChangeEvent, useState } from "react";
-import TableClient from "./tableClient";
 
 export type ItemFormNewClientProps = {
   show: boolean;
@@ -79,6 +78,12 @@ export default function ItemFormNewClient({
 
   const birthYear = document.getElementById("birthYear") as HTMLInputElement;
 
+  const [selectedValue, setSelectedValue] = useState("option-one");
+
+  const handleRadioChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSelectedValue(event.target.value);
+  };
+
   if (phoneInput) {
     VanillaMasker(phoneInput).maskPattern("(99) 99999-9999");
   }
@@ -90,11 +95,6 @@ export default function ItemFormNewClient({
   if (birthYear) {
     VanillaMasker(birthYear).maskPattern("9999");
   }
-  const [selectedValue, setSelectedValue] = useState("option-one");
-
-  const handleRadioChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(event.target.value);
-  };
 
   if (selectedValue === "option-one" && idVehicle) {
     VanillaMasker(idVehicle).maskPattern("AAA-9999");

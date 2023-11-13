@@ -238,6 +238,13 @@
   padding-top: 10px;
 }
 
+.buttonNewService {
+  position: fixed;
+  margin-top: 4rem;
+  margin-left: 78.3rem;
+  margin-right: 0rem;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

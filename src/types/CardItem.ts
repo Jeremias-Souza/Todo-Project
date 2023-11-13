@@ -10,6 +10,7 @@ export type CardItem = {
   description: string;
   createdAt: string;
   status: CardItemStatus;
+  idUserCreation: number;
 };
 
 export enum ItemFormNewClientsStatus {
@@ -27,4 +28,11 @@ export type ItemFormNewClients = {
   telCliente: string;
   createdAt: string;
   status: ItemFormNewClientsStatus;
+};
+
+export type RegisterService = {
+  createAt: string;
+  valueService: string;
+  servicePerformed: string;
+  guarantee: string;
 };

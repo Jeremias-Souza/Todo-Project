@@ -1,7 +1,7 @@
 import "firebase/firestore";
 import "firebase/auth";
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";
 
 export const app = initializeApp({
   apiKey: "AIzaSyDBxeaJn08xMzyOKuyVyV4K6Saz89I4W3U",
@@ -13,6 +13,12 @@ export const app = initializeApp({
 });
 
 const auth = getAuth(app);
+let userId = "";
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    userId = user.uid;
+  }
+});
 const provider = new GoogleAuthProvider();
 
-export { auth, provider };
+export { auth, provider, userId };

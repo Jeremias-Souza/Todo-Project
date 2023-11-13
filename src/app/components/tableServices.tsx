@@ -44,7 +44,7 @@ export default function TableServices({ doc }: ClientProps) {
             <TableCell className="font-medium">1</TableCell>
             <TableCell>Troca de oleo</TableCell>
             <TableCell>20/09/2023</TableCell>
-            <TableCell>N/A</TableCell>
+            <TableCell>6 meses</TableCell>
             <TableCell className="text-right">R$ 189,90</TableCell>
           </TableRow>
           <TableRow>
@@ -53,6 +53,13 @@ export default function TableServices({ doc }: ClientProps) {
             <TableCell>11/11/2023</TableCell>
             <TableCell>3 anos</TableCell>
             <TableCell className="text-right">R$ 430,00</TableCell>
+          </TableRow>
+          <TableRow className="bg-slate-100">
+            <TableCell className="font-medium">Total:</TableCell>
+            <TableCell>--</TableCell>
+            <TableCell>--</TableCell>
+            <TableCell>3.6 anos</TableCell>
+            <TableCell className="text-right">R$ 619,09</TableCell>
           </TableRow>
         </TableBody>
       </Table>
