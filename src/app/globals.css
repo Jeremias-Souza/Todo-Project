@@ -225,6 +225,26 @@
   height: 100vh;
 }
 
+.sidebar {
+  font-size: larger;
+  margin-top: 5vh;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.linesSidebar {
+  border-top: 1px solid #ccc;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.buttonNewService {
+  position: fixed;
+  margin-top: 4rem;
+  margin-left: 78.3rem;
+  margin-right: 0rem;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

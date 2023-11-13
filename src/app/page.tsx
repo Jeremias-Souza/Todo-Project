@@ -74,7 +74,7 @@ export default function Home() {
                 textFilter={textFilter}
                 setTextFilter={setTextFilter}
                 cards={doing?.docs as QueryDocumentSnapshot<CardItem>[]}
-                title="Em desenvolvimento"
+                title="Em Serviço"
                 status={CardItemStatus.doing}
               ></List>
             </div>
@@ -92,7 +92,7 @@ export default function Home() {
                 textFilter={textFilter}
                 setTextFilter={setTextFilter}
                 cards={filed?.docs as QueryDocumentSnapshot<CardItem>[]}
-                title="Arquivados"
+                title="Entregues"
                 status={CardItemStatus.filed}
               ></List>
             </div>
