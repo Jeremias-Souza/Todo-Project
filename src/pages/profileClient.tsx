@@ -1,29 +1,17 @@
 "use client";
 import "src/app/globals.css";
-
 import Header from "@/app/components/headerNoFilter";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card";
 import { QueryDocumentSnapshot } from "@firebase/firestore";
 import { ItemFormNewClients } from "@/types/CardItem";
-import { Label } from "@radix-ui/react-label";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Phone } from "lucide-react";
 import { Command } from "@/components/ui/command";
 import Privator from "@/app/components/privator";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/server/firebase.config";
-import TableClient from "@/app/components/tableClient";
 import TableServices from "@/app/components/tableServices";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import ItemFormNewClient from "@/app/components/itemFormNewClient";
 import ItemFormNewService from "@/app/components/itemFormNewService";
 
 export type ClientProps = {
