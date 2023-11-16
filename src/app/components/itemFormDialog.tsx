@@ -82,9 +82,9 @@ export default function ItemFormDialog({
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Placa do Veiculo</FormLabel>
+                  <FormLabel>TItulo</FormLabel>
                   <FormControl>
-                    <Input placeholder="Placa do Veiculo" {...field} />
+                    <Input placeholder="Titulo" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -95,12 +95,9 @@ export default function ItemFormDialog({
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Ordem de serviço</FormLabel>
+                  <FormLabel>Descrição</FormLabel>
                   <FormControl>
-                    <Input
-                      placeholder="Descreva o serviço a ser feito"
-                      {...field}
-                    />
+                    <Input placeholder="Descrição" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

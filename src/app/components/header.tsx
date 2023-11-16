@@ -2,7 +2,6 @@ import { Input } from "@/components/ui/input";
 import { LogOut, Menu } from "lucide-react";
 import { auth } from "@/server/firebase.config";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import SidebarLine from "./sidebarLine";
 
 export type HeaderProps = {
   filter: string;
@@ -21,12 +20,7 @@ export default function HeaderFilter({ filter, setFilter }: HeaderProps) {
       </a>
       <a className="ml-4 fixed flex cursor-pointer scale-150">
         <Sheet>
-          <SheetTrigger>
-            <Menu />
-          </SheetTrigger>
-          <SheetContent>
-            <SidebarLine></SidebarLine>
-          </SheetContent>
+          <SheetTrigger></SheetTrigger>
         </Sheet>
       </a>
 

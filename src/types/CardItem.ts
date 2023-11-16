@@ -12,27 +12,3 @@ export type CardItem = {
   status: CardItemStatus;
   idUserCreation: number;
 };
-
-export enum ItemFormNewClientsStatus {
-  disponivel = 1,
-  notDisponivel = 0,
-}
-
-export type ItemFormNewClients = {
-  idVehicle: string;
-  modelVehicle: string;
-  brandVehicle: string;
-  motorization: string;
-  birthYear: string;
-  nameClient: string;
-  telCliente: string;
-  createdAt: string;
-  status: ItemFormNewClientsStatus;
-};
-
-export type RegisterService = {
-  createAt: string;
-  valueService: string;
-  servicePerformed: string;
-  guarantee: string;
-};

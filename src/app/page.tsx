@@ -74,7 +74,7 @@ export default function Home() {
                 textFilter={textFilter}
                 setTextFilter={setTextFilter}
                 cards={doing?.docs as QueryDocumentSnapshot<CardItem>[]}
-                title="Em Serviço"
+                title="Em andamento"
                 status={CardItemStatus.doing}
               ></List>
             </div>
